@@ -90,6 +90,14 @@ public class TennisTest {
         checkAllScores(game);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void test4invalidName() {
+        TennisGame2 game = new TennisGame2("player1", "player2");
+        game.namedPoints(4);
+    }
+
+
+
     @Test
     public void checkAllScoresTennisGame3() {
         TennisGame3 game = new TennisGame3("player1", "player2");
