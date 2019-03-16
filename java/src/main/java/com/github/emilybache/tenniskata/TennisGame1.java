@@ -1,3 +1,4 @@
+package com.github.emilybache.tenniskata;
 
 public class TennisGame1 implements TennisGame {
     
