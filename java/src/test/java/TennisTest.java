@@ -30,7 +30,8 @@ public class TennisTest {
                 { 2, 2, "Thirty-All"},
                 { 3, 3, "Deuce"},
                 { 4, 4, "Deuce"},
-                
+                { 5, 5, "Deuce"},
+
                 { 1, 0, "Fifteen-Love"},
                 { 0, 1, "Love-Fifteen"},
                 { 2, 0, "Thirty-Love"},
