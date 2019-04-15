@@ -1,4 +1,15 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class TennisGame1 implements TennisGame {
+
+    private static Map<Integer, String> POINTS = new HashMap<>();
+
+    static {
+        POINTS.put(0, "Love");
+        POINTS.put(1, "Fifteen");
+        POINTS.put(2, "Thirty");
+    }
 
     private int m_score1 = 0;
     private int m_score2 = 0;
@@ -20,22 +31,12 @@ public class TennisGame1 implements TennisGame {
 
     public String getScore() {
         String score = "";
-        int tempScore = 0;
+        int tempScore;
         if (m_score1 == m_score2) {
-            switch (m_score1) {
-                case 0:
-                    score = "Love-All";
-                    break;
-                case 1:
-                    score = "Fifteen-All";
-                    break;
-                case 2:
-                    score = "Thirty-All";
-                    break;
-                default:
-                    score = "Deuce";
-                    break;
-
+            if (POINTS.containsKey(m_score1)) {
+                score = POINTS.get(m_score1) + "-All";
+            } else {
+                score = "Deuce";
             }
         } else if (m_score1 >= 4 || m_score2 >= 4) {
             int minusResult = m_score1 - m_score2;
