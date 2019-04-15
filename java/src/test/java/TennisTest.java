@@ -3,7 +3,6 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -12,8 +11,8 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(Parameterized.class)
 public class TennisTest {
 
-    private final String playerOneName = "player1";
-    private final String playerTwoName = "player2";
+    private static final String ANDRE_AGASSI = "Andre Agassi";
+    private static final String BJOERN_BORG = "Björn Borg";
     private int player1Score;
     private int player2Score;
     private String expectedScore;
@@ -40,32 +39,32 @@ public class TennisTest {
                 { 0, 2, "Love-Thirty"},
                 { 3, 0, "Forty-Love"},
                 { 0, 3, "Love-Forty"},
-                { 4, 0, "Win for player1"},
-                { 0, 4, "Win for player2"},
+                { 4, 0, "Win for " + ANDRE_AGASSI},
+                { 0, 4, "Win for " + BJOERN_BORG},
                 
                 { 2, 1, "Thirty-Fifteen"},
                 { 1, 2, "Fifteen-Thirty"},
                 { 3, 1, "Forty-Fifteen"},
                 { 1, 3, "Fifteen-Forty"},
-                { 4, 1, "Win for player1"},
-                { 1, 4, "Win for player2"},
+                { 4, 1, "Win for " + ANDRE_AGASSI},
+                { 1, 4, "Win for " + BJOERN_BORG},
 
                 { 3, 2, "Forty-Thirty"},
                 { 2, 3, "Thirty-Forty"},
-                { 4, 2, "Win for player1"},
-                { 2, 4, "Win for player2"},
+                { 4, 2, "Win for " + ANDRE_AGASSI},
+                { 2, 4, "Win for " + BJOERN_BORG},
                 
-                { 4, 3, "Advantage player1"},
-                { 3, 4, "Advantage player2"},
-                { 5, 4, "Advantage player1"},
-                { 4, 5, "Advantage player2"},
-                { 15, 14, "Advantage player1"},
-                { 14, 15, "Advantage player2"},
+                { 4, 3, "Advantage " + ANDRE_AGASSI},
+                { 3, 4, "Advantage " + BJOERN_BORG},
+                { 5, 4, "Advantage " + ANDRE_AGASSI},
+                { 4, 5, "Advantage " + BJOERN_BORG},
+                { 15, 14, "Advantage " + ANDRE_AGASSI},
+                { 14, 15, "Advantage " + BJOERN_BORG},
 
-                { 6, 4, "Win for player1"},
-                { 4, 6, "Win for player2"},
-                { 16, 14, "Win for player1"},
-                { 14, 16, "Win for player2"},
+                { 6, 4, "Win for " + ANDRE_AGASSI},
+                { 4, 6, "Win for " + BJOERN_BORG},
+                { 16, 14, "Win for " + ANDRE_AGASSI},
+                { 14, 16, "Win for " + BJOERN_BORG},
         });
     }
 
@@ -73,28 +72,28 @@ public class TennisTest {
         int highestScore = Math.max(this.player1Score, this.player2Score);
         for (int i = 0; i < highestScore; i++) {
             if (i < this.player1Score)
-                game.wonPoint(playerOneName);
+                game.wonPoint(ANDRE_AGASSI);
             if (i < this.player2Score)
-                game.wonPoint(playerTwoName);
+                game.wonPoint(BJOERN_BORG);
         }
         assertEquals(this.expectedScore, game.getScore());
     }
 
     @Test
     public void checkAllScoresTennisGame1() {
-        TennisGame1 game = new TennisGame1(playerOneName, playerTwoName);
+        TennisGame1 game = new TennisGame1(ANDRE_AGASSI, BJOERN_BORG);
         checkAllScores(game);
     }
 
     @Test
     public void checkAllScoresTennisGame2() {
-        TennisGame2 game = new TennisGame2(playerOneName, playerTwoName);
+        TennisGame2 game = new TennisGame2(ANDRE_AGASSI, BJOERN_BORG);
         checkAllScores(game);
     }
 
     @Test
     public void checkAllScoresTennisGame3() {
-        TennisGame3 game = new TennisGame3(playerOneName, playerTwoName);
+        TennisGame3 game = new TennisGame3(ANDRE_AGASSI, BJOERN_BORG);
         checkAllScores(game);
     }
 
