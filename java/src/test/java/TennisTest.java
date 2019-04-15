@@ -12,6 +12,8 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(Parameterized.class)
 public class TennisTest {
 
+    private final String playerOneName = "player1";
+    private final String playerTwoName = "player2";
     private int player1Score;
     private int player2Score;
     private String expectedScore;
@@ -71,28 +73,28 @@ public class TennisTest {
         int highestScore = Math.max(this.player1Score, this.player2Score);
         for (int i = 0; i < highestScore; i++) {
             if (i < this.player1Score)
-                game.wonPoint("player1");
+                game.wonPoint(playerOneName);
             if (i < this.player2Score)
-                game.wonPoint("player2");
+                game.wonPoint(playerTwoName);
         }
         assertEquals(this.expectedScore, game.getScore());
     }
 
     @Test
     public void checkAllScoresTennisGame1() {
-        TennisGame1 game = new TennisGame1("player1", "player2");
+        TennisGame1 game = new TennisGame1(playerOneName, playerTwoName);
         checkAllScores(game);
     }
 
     @Test
     public void checkAllScoresTennisGame2() {
-        TennisGame2 game = new TennisGame2("player1", "player2");
+        TennisGame2 game = new TennisGame2(playerOneName, playerTwoName);
         checkAllScores(game);
     }
 
     @Test
     public void checkAllScoresTennisGame3() {
-        TennisGame3 game = new TennisGame3("player1", "player2");
+        TennisGame3 game = new TennisGame3(playerOneName, playerTwoName);
         checkAllScores(game);
     }
 
