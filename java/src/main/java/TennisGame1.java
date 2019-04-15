@@ -9,6 +9,7 @@ public class TennisGame1 implements TennisGame {
         POINTS.put(0, "Love");
         POINTS.put(1, "Fifteen");
         POINTS.put(2, "Thirty");
+        POINTS.put(3, "Forty");
     }
 
     private int m_score1 = 0;
@@ -33,7 +34,7 @@ public class TennisGame1 implements TennisGame {
         String score = "";
         int tempScore;
         if (m_score1 == m_score2) {
-            if (POINTS.containsKey(m_score1)) {
+            if (POINTS.containsKey(m_score1) && m_score1 < POINTS.size() - 1) {
                 score = POINTS.get(m_score1) + "-All";
             } else {
                 score = "Deuce";
@@ -51,20 +52,8 @@ public class TennisGame1 implements TennisGame {
                     score += "-";
                     tempScore = m_score2;
                 }
-                switch (tempScore) {
-                    case 0:
-                        score += "Love";
-                        break;
-                    case 1:
-                        score += "Fifteen";
-                        break;
-                    case 2:
-                        score += "Thirty";
-                        break;
-                    case 3:
-                        score += "Forty";
-                        break;
-                }
+
+                score += POINTS.get(tempScore);
             }
         }
         return score;
