@@ -31,30 +31,30 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        String score = "";
         int tempScore;
         if (m_score1 == m_score2) {
             if (POINTS.containsKey(m_score1) && m_score1 < POINTS.size() - 1) {
-                score = POINTS.get(m_score1) + "-All";
-            } else {
-                score = "Deuce";
+                return POINTS.get(m_score1) + "-All";
             }
-        } else if (m_score1 >= 4 || m_score2 >= 4) {
+            return "Deuce";
+        }
+        if (m_score1 >= 4 || m_score2 >= 4) {
             int minusResult = m_score1 - m_score2;
-            if (minusResult == 1) score = "Advantage " + player1Name;
-            else if (minusResult == -1) score = "Advantage " + player2Name;
-            else if (minusResult >= 2) score = "Win for " + player1Name;
-            else score = "Win for " + player2Name;
-        } else {
-            for (int i = 1; i < 3; i++) {
-                if (i == 1) tempScore = m_score1;
-                else {
-                    score += "-";
-                    tempScore = m_score2;
-                }
+            if (minusResult == 1) return "Advantage " + player1Name;
+            if (minusResult == -1) return "Advantage " + player2Name;
+            if (minusResult >= 2) return "Win for " + player1Name;
+            return "Win for " + player2Name;
+        }
 
-                score += POINTS.get(tempScore);
+        String score = "";
+        for (int i = 1; i < 3; i++) {
+            if (i == 1) tempScore = m_score1;
+            else {
+                score += "-";
+                tempScore = m_score2;
             }
+
+            score += POINTS.get(tempScore);
         }
         return score;
     }
