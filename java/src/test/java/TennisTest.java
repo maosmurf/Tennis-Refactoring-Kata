@@ -41,7 +41,7 @@ public class TennisTest {
                 { 0, 3, "Love-Forty"},
                 { 4, 0, "Win for " + ANDRE_AGASSI},
                 { 0, 4, "Win for " + BJOERN_BORG},
-                
+
                 { 2, 1, "Thirty-Fifteen"},
                 { 1, 2, "Fifteen-Thirty"},
                 { 3, 1, "Forty-Fifteen"},
@@ -53,7 +53,7 @@ public class TennisTest {
                 { 2, 3, "Thirty-Forty"},
                 { 4, 2, "Win for " + ANDRE_AGASSI},
                 { 2, 4, "Win for " + BJOERN_BORG},
-                
+
                 { 4, 3, "Advantage " + ANDRE_AGASSI},
                 { 3, 4, "Advantage " + BJOERN_BORG},
                 { 5, 4, "Advantage " + ANDRE_AGASSI},
@@ -94,6 +94,12 @@ public class TennisTest {
     @Test
     public void checkAllScoresTennisGame3() {
         TennisGame3 game = new TennisGame3(ANDRE_AGASSI, BJOERN_BORG);
+        checkAllScores(game);
+    }
+
+    @Test
+    public void checkAllScoresTennisGame4() {
+        TennisGame4 game = new TennisGame4(ANDRE_AGASSI, BJOERN_BORG);
         checkAllScores(game);
     }
 
