@@ -103,4 +103,10 @@ public class TennisTest {
         checkAllScores(game);
     }
 
+    @Test
+    public void checkAllScoresTennisGame5() {
+        TennisGame5 game = new TennisGame5(ANDRE_AGASSI, BJOERN_BORG);
+        checkAllScores(game);
+    }
+
 }

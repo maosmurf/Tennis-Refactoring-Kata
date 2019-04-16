@@ -41,7 +41,7 @@ public class TennisGame4 implements TennisGame {
 
         if (player1points == player2points) {
             if (player1points >= NAMED_POINTS) {
-                return "Deuce";
+                return "DeuceGameState";
             }
             return player1word + "-All";
         }

@@ -24,7 +24,7 @@ public class TennisGame2 implements TennisGame {
             score += "-All";
         }
         if (P1point == P2point && P1point >= 3)
-            score = "Deuce";
+            score = "DeuceGameState";
 
         if (P1point > 0 && P2point == 0) {
             if (P1point == 1)

@@ -36,7 +36,7 @@ public class TennisGame1 implements TennisGame {
             if (POINTS.containsKey(m_score1) && m_score1 < POINTS.size() - 1) {
                 return POINTS.get(m_score1) + "-All";
             }
-            return "Deuce";
+            return "DeuceGameState";
         }
         if (m_score1 >= 4 || m_score2 >= 4) {
             int minusResult = m_score1 - m_score2;
